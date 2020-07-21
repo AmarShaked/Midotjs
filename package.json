@@ -9,18 +9,20 @@
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "tslint -p tsconfig.json",
     "test": "jest --config jestconfig.json",
-    "prepare" : "yarn build",
-    "prepublishOnly" : "yarn && yarn lint",
-    "preversion" : "yarn lint",
-    "version" : "yarn format && git add -A src",
-    "postversion" : "git push && git push --tags"
-
+    "coverage": "jest --config jestconfig.json --coverage",
+    "prepare": "yarn build",
+    "prepublishOnly": "yarn && yarn lint",
+    "preversion": "yarn lint",
+    "version": "yarn format && git add -A src",
+    "postversion": "git push && git push --tags"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AmarShaked/Midotjs.git"
   },
-  "keywords": ["Midot"],
+  "keywords": [
+    "Midot"
+  ],
   "author": "Shaked Amar",
   "license": "ISC",
   "files": [
@@ -32,6 +34,11 @@
   "homepage": "https://github.com/AmarShaked/Midotjs#readme",
   "devDependencies": {
     "@types/jest": "^26.0.5",
+    "@typescript-eslint/eslint-plugin": "^3.7.0",
+    "eslint": "^7.5.0",
+    "eslint-config-airbnb-typescript": "^9.0.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.22.0",
     "jest": "^26.1.0",
     "prettier": "^2.0.5",
     "ts-jest": "^26.1.3",
