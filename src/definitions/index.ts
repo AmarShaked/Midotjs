@@ -1,5 +1,5 @@
-import lengthUnits from './length';
+import length from './length';
 
 export default {
-  ...lengthUnits,
+  length,
 };

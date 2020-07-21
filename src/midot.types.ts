@@ -1,7 +1,8 @@
-export interface METRIC {
-    name: {
-        singular: string;
-        plural: string;
-    },
-    anchor: number;
+export interface UNIT {
+  name: {
+    singular: string;
+    plural: string;
+  };
+  anchor: number;
+  system: string;
 }

@@ -1,10 +1,10 @@
 import definitions from './definitions';
-import { METRIC } from './midot.types';
+import { SYSTEM, UNIT } from './midot.types';
 
 class Converter {
-  private destination?: METRIC;
+  private destination?: UNIT;
 
-  private origin?: METRIC;
+  private origin?: UNIT;
 
   private readonly val: number;
 
@@ -46,6 +46,11 @@ class Converter {
     }
 
     // You can't go from liquid to mass, for example
+    if (this.destination.system !== this.origin.system) {
+      throw new Error(
+        `Cannot convert incompatible measures of ${this.destination.system} and ${this.origin.system}`,
+      );
+    }
 
     /**
      * Convert from the source value to its anchor inside the system
@@ -58,7 +63,13 @@ class Converter {
     return result / this.destination?.anchor;
   };
 
-  getUnit = (unit: string): METRIC | undefined => definitions[unit];
+  getUnit = (unit: string): UNIT | undefined => {
+    const units = Object.values(definitions).reduce((prev, curr) => {
+      return { ...prev, ...curr };
+    }, {});
+
+    return units[unit];
+  };
 
   throwUnsupportedUnitError = (what: string) =>
     new Error(
