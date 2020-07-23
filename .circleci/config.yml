@@ -19,36 +19,12 @@ jobs:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
             - v1-dependencies-
-      - attach_workspace:
-          at: ~/repo
       - run: npm install
-      # - run:
-      #     name: Run tests
-      #     command: npm test
-
-      - store_test_results:
-          path: test-results
 
       - run:
-          name: Run Jest and Collect Coverage Reports
-          command: yarn test --collectCoverage=true
-      - store_artifacts:
-          path: coverage
-
-      - run:
-          name: Install JUnit coverage reporter
-          command: yarn add -D jest-junit
-
-      - run:
-          name: Run tests with JUnit as reporter
-          command: yarn test --ci --runInBand --reporters=default --reporters=jest-junit
-          environment:
-            JEST_JUNIT_OUTPUT_DIR: ./reports/junit/
-      - store_test_results:
-          path: ./reports/junit/
-      - store_artifacts:
-          path: ./reports/junit
-
+          name: Run tests
+          command: npm test
+      
       - save_cache:
           paths:
             - node_modules
