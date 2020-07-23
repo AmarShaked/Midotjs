@@ -10,10 +10,10 @@
     "lint": "tslint -p tsconfig.json",
     "test": "jest --config jestconfig.json",
     "coverage": "jest --config jestconfig.json --coverage",
-    "prepare": "yarn build",
-    "prepublishOnly": "yarn && yarn lint",
-    "preversion": "yarn lint",
-    "version": "yarn format && git add -A src",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm install && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
     "postversion": "git push && git push --tags"
   },
   "repository": {
