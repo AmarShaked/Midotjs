@@ -21,13 +21,7 @@ jobs:
             - v1-dependencies-
 
       - run: npm install
-      # - run:
-      #     name: Run tests
-      #     command: npm test
-
-      - store_test_results:
-          path: test-results
-
+      
       - run:
           name: Run Jest and Collect Coverage Reports
           command: npm run coverage
