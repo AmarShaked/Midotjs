@@ -30,7 +30,7 @@ jobs:
 
       - run:
           name: Run Jest and Collect Coverage Reports
-          command: npm test --collectCoverage=true
+          command: yarn test --collectCoverage=true
       - store_artifacts:
           path: coverage
 
@@ -40,7 +40,7 @@ jobs:
 
       - run:
           name: Run tests with JUnit as reporter
-          command: npm test --ci --runInBand --reporters=default --reporters=jest-junit
+          command: yarn test --ci --runInBand --reporters=default --reporters=jest-junit
           environment:
             JEST_JUNIT_OUTPUT_DIR: ./reports/junit/
       - store_test_results:
