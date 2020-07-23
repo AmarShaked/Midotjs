@@ -1,13 +1,15 @@
-import { UNIT } from '../midot.types';
+import { Unit } from '../midot.types';
 
-const metric: { [unit: string]: UNIT } = {
+const metric: (system: string) => { [unit: string]: Unit } = (
+  system: string,
+) => ({
   אצבע: {
     name: {
       singular: 'אצבע',
       plural: 'אצבעות',
     },
     anchor: 1,
-    system: 'length',
+    system,
   },
   אגודל: {
     name: {
@@ -15,7 +17,7 @@ const metric: { [unit: string]: UNIT } = {
       plural: 'אגודלים',
     },
     anchor: 1,
-    system: 'length',
+    system,
   },
   טפח: {
     name: {
@@ -23,7 +25,7 @@ const metric: { [unit: string]: UNIT } = {
       plural: 'טפחים',
     },
     anchor: 4,
-    system: 'length',
+    system,
   },
   זרת: {
     name: {
@@ -31,7 +33,7 @@ const metric: { [unit: string]: UNIT } = {
       plural: 'זרתות',
     },
     anchor: 12,
-    system: 'length',
+    system,
   },
   אמה: {
     name: {
@@ -39,7 +41,7 @@ const metric: { [unit: string]: UNIT } = {
       plural: 'אמות',
     },
     anchor: 24,
-    system: 'length',
+    system,
   },
   גומד: {
     name: {
@@ -47,7 +49,7 @@ const metric: { [unit: string]: UNIT } = {
       plural: 'גרמידות',
     },
     anchor: 24,
-    system: 'length',
+    system,
   },
   ריס: {
     name: {
@@ -55,7 +57,7 @@ const metric: { [unit: string]: UNIT } = {
       plural: 'ריס',
     },
     anchor: 6400,
-    system: 'length',
+    system,
   },
   מיל: {
     name: {
@@ -63,7 +65,7 @@ const metric: { [unit: string]: UNIT } = {
       plural: 'מילים',
     },
     anchor: 48000,
-    system: 'length',
+    system,
   },
   פרסה: {
     name: {
@@ -71,8 +73,8 @@ const metric: { [unit: string]: UNIT } = {
       plural: 'פרסות',
     },
     anchor: 192000,
-    system: 'length',
+    system,
   },
-};
+});
 
-export default metric;
+export default metric('length');

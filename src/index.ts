@@ -1,10 +1,10 @@
 import definitions from './definitions';
-import { SYSTEM, UNIT } from './midot.types';
+import { Unit } from './midot.types';
 
 class Converter {
-  private destination?: UNIT;
+  private destination?: Unit;
 
-  private origin?: UNIT;
+  private origin?: Unit;
 
   private readonly val: number;
 
@@ -63,12 +63,8 @@ class Converter {
     return result / this.destination?.anchor;
   };
 
-  getUnit = (unit: string): UNIT | undefined => {
-    const units = Object.values(definitions).reduce((prev, curr) => {
-      return { ...prev, ...curr };
-    }, {});
-
-    return units[unit];
+  getUnit = (unit: string): Unit | undefined => {
+    return definitions[unit];
   };
 
   throwUnsupportedUnitError = (what: string) =>
