@@ -8,9 +8,8 @@ class Converter {
 
   private readonly val: number;
 
-  constructor(numerator: number, denominator?: number) {
-    if (denominator) this.val = numerator / denominator;
-    else this.val = numerator;
+  constructor(numerator: number) {
+    this.val = numerator;
   }
 
   /**
@@ -41,7 +40,7 @@ class Converter {
       throw this.throwUnsupportedUnitError(toSize);
     }
 
-    if (this.destination?.name === this.origin.name) {
+    if (this.destination.name === this.origin.name) {
       return this.val;
     }
 
@@ -75,5 +74,4 @@ class Converter {
     );
 }
 
-export default (numerator: number, denominator?: number) =>
-  new Converter(numerator, denominator);
+export default (numerator: number) => new Converter(numerator);
