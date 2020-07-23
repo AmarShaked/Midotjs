@@ -30,10 +30,10 @@ jobs:
 
       - run:
           name: Run Jest and Collect Coverage Reports
-          command: npm run coverage
+          command: npm test --collectCoverage=true
       - store_artifacts:
           path: coverage
-  
+
       - run:
           name: Install JUnit coverage reporter
           command: yarn add -D jest-junit
