@@ -21,7 +21,7 @@ yarn add midotjs
 import midot from 'midotjs';
 
 
-midot(2).from('מיל').to('ריס') //7.5
+midot(1).from('מיל').to('ריס') //7.5
 ```
 
 ---
