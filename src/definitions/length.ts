@@ -27,6 +27,14 @@ const metric: (system: string) => { [unit: string]: Unit } = (
     anchor: 4,
     system,
   },
+  סיט: {
+    name: {
+      singular: 'סיט',
+      plural: 'סיט',
+    },
+    anchor: 4,
+    system,
+  },
   זרת: {
     name: {
       singular: 'זרת',
