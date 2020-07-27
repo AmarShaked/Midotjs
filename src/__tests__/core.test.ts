@@ -24,6 +24,10 @@ describe('Midot JS basic tests', () => {
     }).toThrowError('.from must be called before .to');
   });
 
+  test('convert two measures from different systems', () => {
+    expect(() => midot(2).from('הין').to('אצבע')).toThrowError();
+  });
+
   test('return the initial value if the measures are the same', () => {
     expect(midot(2).from('אצבע').to('אצבע')).toEqual(2);
   });
